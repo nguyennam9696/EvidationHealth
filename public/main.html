@@ -1,22 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="medApp">
   <head>
     <title>Evidation Health | Take Home</title>
     <meta charset="utf-8">
+    <base href="/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Front-End Developer Assignment" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   </head>
 <body>
-  <div class="container">
-    <div class="page-header">
-      <h1>Hello World</h1>
-    </div>
-  </div>
+
+  <div class="form-box container-fluid">
+    <section class="container">
+    <div class="container-page">
+      <div class="col-md-6">
+        <form action="" method="post" id="volunteer-form" name="vform">
+          <!-- Form Header -->
+          <fieldset>
+
+          <legend class="form-header text-center">Voluntary Participation</legend>
+
+              <p>Participation in this study is voluntary. If you do not wish to participate,
+              there will be no penalty of any kind.</p>
+
+              <p>To confirm your intent to enroll in this study, please complete the form below.</p>
+
+            <!-- Text/input for First Name -->
+            <div class="form-group col-lg-6">
+              <label for="fname">First Name</label>
+              <input type="text" name="fname" class="form-control" id="fname" placeholder="Bob" />
+            </div>
+
+            <!-- Text/input for Last Name -->
+            <div class="form-group col-lg-6">
+              <label for="lname">Last Name</label>
+              <input type="text" name="lname" class="form-control" id="lname" placeholder="Saget" />
+            </div>
+
+            <!-- Text/input for City -->
+            <div class="form-group col-lg-12">
+              <label for="city">What city were you born in?</label>
+              <input type="text" name="city" class="form-control" id="city" placeholder="Philadelphia" />
+            </div>
+
+            <!-- Checkbox for consent -->
+            <div class="form-group col-lg-6">
+              <input type="checkbox" id="consent" ng-model="checked" />
+              <label for="consent">I consent to participate in the study.</label>
+            </div>
+
+            <!-- Form Submission -->
+            <div class="checkbox">
+              <input type="submit" value="Submit" id="btn-valid" class="btn btn-success col-lg-12 pull-left" />
+            </div>
+
+          </fieldset>
+        </form>
+
+      </div>  <!-- .col-md-6 -->
+    </div>    <!-- .container-page -->
+    </section><!-- .container -->
+  </div>      <!-- .form-box -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="src/app.js"></script>
 </body>
 </html>
