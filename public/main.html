@@ -23,7 +23,7 @@
     <section class="container">
     <div class="container-page">
       <div class="col-md-6">
-        <form action="" method="post" id="volunteer-form" name="userForm" novalidate>
+        <form action="#" method="post" id="volunteer-form" name="vform" novalidate>
           <!-- Form Header -->
           <fieldset>
 
@@ -37,33 +37,50 @@
             <!-- Text/input for First Name -->
             <div class="form-group col-lg-6">
               <label for="fname">First Name</label>
-              <input type="text" name="fname" class="form-control" id="fname" placeholder="Bob" ng-model="user.fname" required="" />
-              <div ng-show="userForm.$submitted || userForm.fName.$touched">
-                <div ng-show="userForm.fName.$error.required">Please fill in your first name</div>
+              <input type="text" name="fname" class="form-control" id="fname" placeholder="Bob"
+                     ng-model="user.fname" required />
+              <div class="alert alert-danger" role="alert"
+                   ng-show="vform.fname.$dirty && vform.fname.$invalid">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Field cannot be blank!</span>
               </div>
             </div>
 
             <!-- Text/input for Last Name -->
             <div class="form-group col-lg-6">
               <label for="lname">Last Name</label>
-              <input type="text" name="lname" class="form-control" id="lname" placeholder="Saget" ng-model="user.lname" required />
+              <input type="text" name="lname" class="form-control" id="lname" placeholder="Saget"
+                     ng-model="user.lname" required />
+              <div class="alert alert-danger" role="alert"
+                   ng-show="vform.lname.$dirty && vform.lname.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Field cannot be blank!</span>
+              </div>
             </div>
 
             <!-- Text/input for City -->
             <div class="form-group col-lg-12">
               <label for="city">What city were you born in?</label>
-              <input type="text" name="city" class="form-control" id="city" placeholder="Philadelphia" ng-model="user.city" required />
+              <input type="text" name="city" class="form-control" id="city" placeholder="Philadelphia"
+                     ng-model="user.city" required />
+              <div class="alert alert-danger" role="alert"
+                   ng-show="vform.city.$dirty && vform.city.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Field cannot be blank!</span>
+              </div>
             </div>
 
             <!-- Checkbox for consent -->
             <div class="form-group col-lg-6">
               <input type="checkbox" id="consent" ng-model="checked" />
               <label for="consent">I consent to participate in the study.</label>
+              <div class="alert alert-danger" role="alert"
+                   ng-show="vform.consent.$dirty && vform.consent.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Must be checkmarked!</span>
+              </div>
             </div>
 
             <!-- Form Submission -->
             <div class="checkbox">
-              <input type="submit" value="Submit" id="btn-valid" class="btn btn-success col-lg-12 pull-left" />
+              <input type="submit" id="btn-valid" class="btn btn-success col-lg-12 pull-left"
+                     ng-disabled="vform.$invalid"/>
             </div>
 
           </fieldset>
@@ -82,5 +99,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
   <script src="src/js/app.js"></script>
+  <script src="src/js/jqueryFormVal.js"></script>
 </body>
 </html>
