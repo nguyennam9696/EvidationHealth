@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="medApp">
   <head>
     <title>Evidation Health | Take Home</title>
     <meta charset="utf-8">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/form.css" />
     <link rel="stylesheet" type="text/css" href="src/css/logo.css" />
     <link rel="stylesheet" type="text/css" href="src/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/validation.css" />
   </head>
 <body>
 
@@ -18,11 +19,11 @@
     <img src="src/image/medcompany-logo.png" alt="green-o" />
   </div>
 
-  <div class="form-box container-fluid">
+  <div ng-controller="formCtrl" class="form-box container-fluid">
     <section class="container">
     <div class="container-page">
       <div class="col-md-6">
-        <form action="" method="post" id="volunteer-form" name="vform">
+        <form action="" method="post" id="volunteer-form" name="userForm" novalidate>
           <!-- Form Header -->
           <fieldset>
 
@@ -36,19 +37,22 @@
             <!-- Text/input for First Name -->
             <div class="form-group col-lg-6">
               <label for="fname">First Name</label>
-              <input type="text" name="fname" class="form-control" id="fname" placeholder="Bob" />
+              <input type="text" name="fname" class="form-control" id="fname" placeholder="Bob" ng-model="user.fname" required="" />
+              <div ng-show="userForm.$submitted || userForm.fName.$touched">
+                <div ng-show="userForm.fName.$error.required">Please fill in your first name</div>
+              </div>
             </div>
 
             <!-- Text/input for Last Name -->
             <div class="form-group col-lg-6">
               <label for="lname">Last Name</label>
-              <input type="text" name="lname" class="form-control" id="lname" placeholder="Saget" />
+              <input type="text" name="lname" class="form-control" id="lname" placeholder="Saget" ng-model="user.lname" required />
             </div>
 
             <!-- Text/input for City -->
             <div class="form-group col-lg-12">
               <label for="city">What city were you born in?</label>
-              <input type="text" name="city" class="form-control" id="city" placeholder="Philadelphia" />
+              <input type="text" name="city" class="form-control" id="city" placeholder="Philadelphia" ng-model="user.city" required />
             </div>
 
             <!-- Checkbox for consent -->
